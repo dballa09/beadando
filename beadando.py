@@ -1,33 +1,32 @@
 import numpy as np
 #EX1
-kor=int(input("adja meg a korok szamat(1-1000): "))
-p1=[]
-p2=[]
-for i in range(kor):
-    pont1=int(input("adja meg P1 pontszamat(1-1000): "))
-    p1.append(pont1)
-    pont2=int(input("adja meg P2 pontszamat(1-1000): "))
-    p2.append(pont2)
-def biggestLead(kor, p1, p2):
-    maxLead=0
-    leader=""
-    sum1=0
-    sum2=0
-    for i in range(kor):
-        sum1+=p1[i]
-        sum2+=p2[i]
-        lead=sum1-sum2
-        if lead>0:
-            if lead>maxLead:
-                maxLead=lead
-                leader = "P1"
-        if lead<0:
-            if abs(lead)>maxLead:
-                maxLead=abs(lead)
-                leader = "P2"
-    print(leader, maxLead)
-print(biggestLead(kor, p1, p2))
-
+# kor=int(input("adja meg a korok szamat(1-10000): "))
+# p1=[]
+# p2=[]
+# for i in range(kor):
+#     pont1=int(input("adja meg P1 pontszamat(1-1000): "))
+#     p1.append(pont1)
+#     pont2=int(input("adja meg P2 pontszamat(1-1000): "))
+#     p2.append(pont2)
+# def biggestLead(kor, p1, p2):
+#     maxLead=0
+#     leader=""
+#     sum1=0
+#     sum2=0
+#     for i in range(kor):
+#         sum1+=p1[i]
+#         sum2+=p2[i]
+#         lead=sum1-sum2
+#         if lead>0:
+#             if lead>maxLead:
+#                 maxLead=lead
+#                 leader = "P1"
+#         if lead<0:
+#             if abs(lead)>maxLead:
+#                 maxLead=abs(lead)
+#                 leader = "P2"
+#     return leader, maxLead
+# print(biggestLead(kor, p1, p2))
 
 
 
@@ -35,15 +34,37 @@ print(biggestLead(kor, p1, p2))
 
 
 #EX32
-# a=["X", "O", "E"]
-# amoba=np.random.choice(a, (3, 3))
-# def winner(amoba):
-#     if amoba[0,0] and amoba[0,1] and amoba[0,2]:
-#         return "X"
-#     else:
-#         return "egyenlo"
-# print(amoba)
-# print(winner(amoba))
+a=["X", "O", "E"]
+amoba=np.random.choice(a, (3, 3))
+print(amoba)
+def winner(a, amoba):
+    if amoba[0,0]==amoba[0,1]==amoba[0,2]:
+        if amoba[0,0]!="E":
+            return amoba[0,0]
+    if amoba[1,0]==amoba[1,1]==amoba[1,2]:
+        if amoba[1,0]!="E":
+            return amoba[1,0]
+    if amoba[2,0]==amoba[2,1]==amoba[2,2]:
+        if amoba[2,0]!="E":
+            return amoba[2,0]
+    if amoba[0,0]==amoba[1,0]==amoba[2,0]:
+        if amoba[0,0]!="E":
+            return amoba[0,0]
+    if amoba[0,1]==amoba[1,1]==amoba[2,1]:
+        if amoba[0,1]!="E":
+            return amoba[0,1]
+    if amoba[0,2]==amoba[1,2]==amoba[2,2]:
+        if amoba[0,2]!="E":
+            return amoba[0,2]
+    if amoba[0,0]==amoba[1,1]==amoba[2,2]:
+        if amoba[0,0]!="E":
+            return amoba[0,0]
+    if amoba[0,2]==amoba[1,1]==amoba[2,0]:
+        if amoba[0,2]!="E":
+            return amoba[0,2]
+    else:
+        return "egyenlo"
+print(winner(a, amoba))
 #
 #
 #
