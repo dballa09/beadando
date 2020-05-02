@@ -1,7 +1,7 @@
 import numpy as np
 #EX1
 kor=0
-while kor==int(kor) and kor<1:
+while kor==int(kor) and kor<1 or kor>10000:
     try:
         kor=int(input("adja meg a korok szamat(1-10000): "))
     except ValueError:
@@ -11,13 +11,13 @@ p2=[]
 for i in range(kor):
     pont1 = 0
     pont2 = 0
-    while pont1 == int(pont1) and pont1 < 1:
+    while pont1 == int(pont1) and pont1 < 1 or pont1>1000:
         try:
             pont1=int(input("adja meg P1 pontszamat(1-1000): "))
         except ValueError:
             print("ervenytelenul adta meg P1 pontszamat, adja meg ujra")
     p1.append(pont1)
-    while pont2 == int(pont2) and pont2 < 1:
+    while pont2 == int(pont2) and pont2 < 1 or pont2>1000:
         try:
             pont2=int(input("adja meg P2 pontszamat(1-1000): "))
         except ValueError:
@@ -53,7 +53,7 @@ biggestLead(kor, p1, p2)
 a=["X", "O", "E"]
 amoba=np.random.choice(a, (3, 3))
 print(amoba)
-def winner(a, amoba):
+def winner(amoba):
     if amoba[0,0]==amoba[0,1]==amoba[0,2]:
         if amoba[0,0]!="E":
             return amoba[0,0]
@@ -80,7 +80,7 @@ def winner(a, amoba):
             return amoba[0,2]
     else:
         return "egyenlo"
-print(winner(a, amoba))
+print(winner(amoba))
 
 
 
